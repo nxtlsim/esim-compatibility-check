@@ -56,6 +56,9 @@ Does my phone support eSIM? This page detects your device where the browser allo
 
 Statuses: Supports eSIM · Depends on configuration · Depends on region/version · Cellular version needed · Needs an eSIM adapter · No eSIM. A device missing from the list is not necessarily unsupported.
 
+## Model codes
+Each device carries the model codes that phones report to browsers (`navigator.userAgentData.model` / Build.MODEL). Android codes such as `SM-S928B` or `CPH2581` come from Google Play's official supported-devices list (https://storage.googleapis.com/play_public/supported_devices.csv). Apple A-numbers and their regions come from https://support.apple.com/en-us/108044 (iPhone) and https://support.apple.com/en-us/108043 (iPad). Samsung codes also match by base code, so `SM-S928` plus any region suffix maps to the Galaxy S24 Ultra. China-mainland iPhone versions are flagged as having no eSIM per https://support.apple.com/en-us/118669; China/Hong Kong/Macao versions get a warning to check. HUAWEI, Rakuten Mini, Fairphone (Gen. 6), Nothing Phone (3), Pixel 5a (5G), AQUOS sense4 lite, Motorola razr+ (2024/2025), Lenovo Tab K11 Gen 2 and iPad Pro 11-inch (1st gen) have no model codes yet, so search them by name. Codes checked 2026-10-26.
+
 ## Files
 `docs/` index.html, manifest.json, sw.js, devices.json, icon-192.png, icon-512.png
 
