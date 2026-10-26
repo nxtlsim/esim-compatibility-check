@@ -86,7 +86,7 @@ async function detect(){const ua=navigator.userAgent;
  const m=ua.match(/Android [\d.]+; ([^;)]+?)(?: Build|\))/);if(m&&m[1]&&m[1]!=='K')return{txt:'Detected model: <b>'+esc(m[1])+'</b>.',q:m[1]};
  if(/Android/.test(ua))return{txt:'Android detected, but your browser hides the model. Find it in Settings → About phone and type it below.',q:''};
  return{txt:'On a computer? Search your phone, tablet, laptop or router below. For a laptop, search this computer\'s model.',q:''}}
-(async()=>{const j=await (await fetch('devices.json')).json();D=j.devices;meta=j;const p=new URLSearchParams(location.search),dt=await detect();$('det').innerHTML=dt.txt;
+(async()=>{const j=await (await fetch('devices.json?v=20261026c',{cache:'no-cache'})).json();D=j.devices;meta=j;const p=new URLSearchParams(location.search),dt=await detect();$('det').innerHTML=dt.txt;
  if(p.get('c')){cat=p.get('c');[...$('cats').children].forEach(c=>c.classList.toggle('on',c.dataset.c===cat))}
  $('q').value=p.get('m')||dt.q;run();
  const v=$('q').value.trim();if(v){const t=D.map(d=>({d,s:score(d,v)})).sort((a,b)=>b.s-a.s)[0];if(t&&t.s>=110){DC=v;$('q').value=t.d.m;$('det').innerHTML+=' Matched to <b>'+esc(t.d.b+' '+t.d.m)+'</b>.';run()}}})();
